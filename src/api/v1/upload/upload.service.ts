@@ -12,6 +12,7 @@ export class UploadService {
   ) {}
 
   create(upload: UploadType) {
+    console.log(upload);
     return this.UploadModel.create(upload);
   }
 

@@ -2,14 +2,23 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
 export type UploadDocument = HydratedDocument<Upload>;
-// schema 为数据库上传校验器
+
 @Schema()
 export class Upload {
   @Prop({ required: true })
-  name: string;
+  component: string;
+
+  @Prop()
+  img: string;
+
+  @Prop()
+  desc: string;
 
   @Prop({ required: true })
-  email: string;
+  uploadTime: string;
+
+  @Prop({ required: true })
+  uploader: string;
 }
 
 export const UploadSchema = SchemaFactory.createForClass(Upload);

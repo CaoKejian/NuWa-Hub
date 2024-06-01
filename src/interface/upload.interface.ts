@@ -1,4 +1,7 @@
 export interface UploadType {
-  name: string;
-  email: string;
+  component: string;
+  img: string;
+  desc: string;
+  uploadTime: string;
+  uploader: string;
 }
