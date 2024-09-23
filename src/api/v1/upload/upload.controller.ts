@@ -30,7 +30,7 @@ export class UploadController {
   @HttpCode(200)
   @UsePipes(new ValidationPipe())
   @ApiBody({ type: [CreateUploadDto] })
-  @ApiResponse({ status: 200, description: '更新组件' })
+  @ApiResponse({ status: 200, description: '上传组件' })
   async create(@Body() createUploadDto: CreateUploadDto) {
     this.service.create(createUploadDto);
   }

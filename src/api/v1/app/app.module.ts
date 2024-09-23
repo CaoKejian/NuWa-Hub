@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UploadModule } from 'src/api/v1/upload/upload.module';
+import { UpdateModule } from 'src/api/v1/update/update.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RouterModule } from '@nestjs/core';
 
@@ -13,8 +14,13 @@ import { RouterModule } from '@nestjs/core';
         path: 'v1',
         module: UploadModule,
       },
+      {
+        path: 'v1',
+        module: UpdateModule,
+      },
     ]),
     UploadModule,
+    UpdateModule,
   ],
   controllers: [AppController],
   providers: [AppService],
