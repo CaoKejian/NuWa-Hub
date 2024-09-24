@@ -4,7 +4,8 @@ import { AppService } from './app.service';
 import { UploadModule } from 'src/api/v1/upload/upload.module';
 import { UpdateModule } from 'src/api/v1/update/update.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { RouterModule } from '@nestjs/core';
+import { APP_INTERCEPTOR, RouterModule } from '@nestjs/core';
+import { ResponseInterceptor } from '../../../tools/response.interceptor';
 
 @Module({
   imports: [
@@ -23,6 +24,12 @@ import { RouterModule } from '@nestjs/core';
     UpdateModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ResponseInterceptor,
+    },
+  ],
 })
 export class AppModule {}
