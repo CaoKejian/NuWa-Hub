@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CpType } from 'src/interface/update.interface';
+import { CpInfoType, CpType } from 'src/interface/update.interface';
 import { UpdateModule } from './update.module';
 import { Update } from 'src/schemas/Update.schema';
 import { uuid } from '../../../tools/utils';
@@ -34,7 +34,7 @@ export class UploadService {
     return data;
   }
 
-  findAll(): Promise<CpType[]> {
-    return this.UpdateModel.find();
+  find(): Promise<CpInfoType[]> {
+    return this.UpdateModel.find({ isCurrent: true });
   }
 }

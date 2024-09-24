@@ -5,3 +5,11 @@ export interface CpType {
   uploadTime?: string;
   uploader?: string;
 }
+
+export interface CpInfoType {
+  cpList: CpType[];
+  id: string;
+  isCurrent: boolean;
+  uploader: string;
+  uploadTime: string;
+}

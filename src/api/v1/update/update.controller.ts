@@ -9,7 +9,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { UploadService } from './update.service';
-import { CpType } from 'src/interface/update.interface';
+import { CpInfoType } from 'src/interface/update.interface';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateUpdateDto } from 'src/validate/update.dto';
 
@@ -22,8 +22,8 @@ export class UpdateController {
   @HttpCode(200)
   @Header('Cache-Control', 'none')
   @ApiResponse({ status: 200, description: '查看组件简约信息' })
-  async addComponent(): Promise<CpType[]> {
-    return this.service.findAll();
+  async addComponent(): Promise<CpInfoType[]> {
+    return this.service.find();
   }
 
   @Post('/')
